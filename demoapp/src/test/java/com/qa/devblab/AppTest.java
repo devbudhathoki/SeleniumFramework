@@ -1,15 +1,10 @@
 package com.qa.devblab;
 
-import org.aeonbits.owner.ConfigCache;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
+import com.qa.utils.ChromeDriverVersions;
+import com.qa.utils.excel.ExcelUtils;
 import org.testng.annotations.Test;
 
-import com.github.dockerjava.api.model.Config;
-import com.qa.config.ConfigFactory;
-import com.qa.config.FrameworkConfig;
-
-import io.github.bonigarcia.wdm.WebDriverManager;
+import java.lang.reflect.Method;
 
 /**
  * Unit test for simple App.
@@ -19,9 +14,17 @@ public class AppTest {
      * Rigorous Test :-)
      */
     @Test
-    public void testlogin() {
+    public void test(Method method) {
+//        System.out.println(ConfigFactory.getConfig().browser());
+//        System.out.println(ConfigFactory.getConfig().url());
+//        System.out.println(ConfigFactory.getConfig().retrymode());
+//        Driver.initDriver("chrome","88.0.4324.96");
+//        System.out.println(ChromeDriverVersions.getVersions());
+       ExcelUtils.downloadExcelFile(
 
-        System.out.println(ConfigFactory.getConfig().browser());
+                "https://docs.google.com/spreadsheets/d/1ooKRsMJarC8-tjI0GJUz8pQW49uooKOC-iNSiNPwF3w/pub?output=xlsx",
+                System.getProperty("user.dir") + "/src/test/resources/excel/testdata.xlsx");
+//        System.out.println(DataProviderUtils.getData(method));
         // WebDriverManager.chromedriver().setup();
         // WebDriver driver = new ChromeDriver();
         // driver.get("http://google.com");
