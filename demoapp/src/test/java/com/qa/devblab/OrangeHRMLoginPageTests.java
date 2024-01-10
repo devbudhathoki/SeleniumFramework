@@ -6,10 +6,7 @@ import org.testng.annotations.Test;
 
 import java.util.Map;
 
-public class LoginPageTests extends BaseTest{
-
-    private LoginPageTests(){
-    }
+public class OrangeHRMLoginPageTests extends BaseTest{
 
     @Test
     public void loginLogoutTest(Map<String, String> data){
@@ -18,7 +15,8 @@ public class LoginPageTests extends BaseTest{
                 .enterPassword(data.get("password"))
                 .clickLogin()
                 .clickProfileImage()
-                .clickLogout().getTitle();
+                .clickLogout()
+                .getTitle();
 
     }
 }

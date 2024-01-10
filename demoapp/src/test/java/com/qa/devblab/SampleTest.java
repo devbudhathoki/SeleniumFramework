@@ -1,6 +1,5 @@
 package com.qa.devblab;
 
-import com.qa.utils.ChromeDriverVersions;
 import com.qa.utils.excel.ExcelUtils;
 import org.testng.annotations.Test;
 
@@ -9,7 +8,7 @@ import java.lang.reflect.Method;
 /**
  * Unit test for simple App.
  */
-public class AppTest {
+public class SampleTest {
     /**
      * Rigorous Test :-)
      */

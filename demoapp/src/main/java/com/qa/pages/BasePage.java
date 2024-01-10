@@ -1,15 +1,12 @@
 package com.qa.pages;
 import com.qa.driver.DriverManager;
-import com.qa.enums.LogType;
 import com.qa.enums.WaitStrategy;
 import com.qa.factories.ExplicitWaitFactory;
-import com.qa.reports.FrameworkLogger;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 
 import static com.qa.enums.LogType.*;
 import static com.qa.reports.FrameworkLogger.*;
-
 
 public class BasePage {
 

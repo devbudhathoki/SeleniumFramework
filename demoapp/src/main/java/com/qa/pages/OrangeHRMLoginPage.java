@@ -2,6 +2,7 @@ package com.qa.pages;
 
 import com.qa.driver.DriverManager;
 import com.qa.enums.WaitStrategy;
+import com.qa.utils.DecodeUtils;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
@@ -26,7 +27,7 @@ public class OrangeHRMLoginPage extends BasePage{
     }
 
     public OrangeHRMLoginPage enterPassword(String password) {
-        sendKeys(Password, password, WaitStrategy.PRESENCE, "password");
+        sendKeys(Password, DecodeUtils.getBase64DecodedString(password), WaitStrategy.PRESENCE, "password");
         return this;
     }
 

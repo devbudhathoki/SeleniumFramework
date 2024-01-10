@@ -9,7 +9,7 @@
 
     <test thread-count="2" name="Test" parallel="methods">
         <classes>
-            <class name="com.qa.devblab.LoginPageTests"/>
+            <class name="com.qa.devblab.OrangeHRMLoginPageTests"/>
         </classes>
     </test> <!-- Test -->
 </suite> <!-- Suite -->

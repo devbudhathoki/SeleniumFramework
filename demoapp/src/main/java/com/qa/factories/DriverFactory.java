@@ -18,15 +18,14 @@ public class DriverFactory {
         WebDriver webDriver = null;
 
         RUNMODE runmode = ConfigFactory.getConfig().runmode();
-        URL url = ConfigFactory.getConfig().url();
+        URL remoteUrl = ConfigFactory.getConfig().seleniumGridUrl();
         BrowserType browsertype =  BrowserType.valueOf(browser.toUpperCase());
         if (browsertype.equals(BrowserType.CHROME)) {
             if (runmode.equals(RUNMODE.REMOTE)) {
-                System.out.println("I am here");
                 DesiredCapabilities cap = new DesiredCapabilities();
-                cap.setBrowserName(BrowserType.CHROME.toString());
+                cap.setBrowserName(browser);
                 cap.setVersion(version);
-                webDriver = new RemoteWebDriver(url, cap);
+                webDriver = new RemoteWebDriver(remoteUrl, cap);
             } else {
                 WebDriverManager.chromedriver().setup();
                 webDriver = new ChromeDriver();
@@ -36,9 +35,9 @@ public class DriverFactory {
 
             if(runmode.equals(RUNMODE.REMOTE)){
                 DesiredCapabilities cap = new DesiredCapabilities();
-                cap.setBrowserName(BrowserType.FIREFOX.toString());
+                cap.setBrowserName(browser);
                 cap.setVersion(version);
-                webDriver = new RemoteWebDriver(url, cap);
+                webDriver = new RemoteWebDriver(remoteUrl, cap);
             }
             else{
                 WebDriverManager.firefoxdriver().setup();

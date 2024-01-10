@@ -1,9 +1,8 @@
 package com.qa.listeners;
 
 import com.qa.constants.FrameworkConstants;
-import com.qa.enums.LogType;
 import com.qa.reports.ExtentReport;
-import com.qa.reports.FrameworkLogger;
+import com.qa.utils.elk.ELKUtils;
 import com.qa.utils.excel.ExcelUtils;
 import org.testng.*;
 
@@ -32,12 +31,13 @@ public class ListenerClass implements ITestListener, ISuiteListener {
 
     @Override
     public void onTestStart(ITestResult result) {
-        ExtentReport.createTest(result.getMethod().getDescription());
+        ExtentReport.createTest(result.getMethod().getMethodName());
     }
 
     @Override
     public void onTestSuccess(ITestResult result) {
         log(PASS, result.getMethod().getMethodName() +" is passed");
+        ELKUtils.sendResultToElk(result.getMethod().getMethodName(), "pass");
     }
 
     @Override
@@ -45,11 +45,13 @@ public class ListenerClass implements ITestListener, ISuiteListener {
         log(FAIL,result.getMethod().getMethodName() +" is failed");
         log(FAIL, result.getThrowable().toString());
         log(FAIL, Arrays.toString(result.getThrowable().getStackTrace()));
+        ELKUtils.sendResultToElk(result.getMethod().getMethodName(), "fail");
     }
 
     @Override
     public void onTestSkipped(ITestResult result) {
         log(SKIP,result.getMethod().getMethodName() +" is skipped");
+        ELKUtils.sendResultToElk(result.getMethod().getMethodName(), "skip");
     }
 
     @Override

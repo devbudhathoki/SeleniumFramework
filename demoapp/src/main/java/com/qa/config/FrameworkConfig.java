@@ -50,4 +50,18 @@ public interface FrameworkConfig extends Config {
 
     @Key("overridereports")
     String overrideReports();
+
+    @ConverterClass(StringToURLConverter.class)
+    @Key("seleniumgridurl")
+    URL seleniumGridUrl();
+
+    @Key("sendresulttoelk")
+    String sendResultToELK();
+
+    @Key("elasticurl")
+    String elasticUrl();
+
+    @Key("finraURL")
+    @ConverterClass(StringToURLConverter.class)
+    URL finraUrl();
 }
