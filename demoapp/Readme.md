@@ -78,7 +78,7 @@ sendresulttoelk=no
 ```
 elasticurl=http://localhost:9200/regression/results
 ```
-#Configuring Testsuite
+# Configuring Testsuite
 
 Testsuite can be configured using [testng.xml](testng.xml)
 ## Running test
