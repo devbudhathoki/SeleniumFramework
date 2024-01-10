@@ -29,7 +29,7 @@ uat.url=https://uat-opensource-demo.orangehrmlive.com/index.php/auth/login
 prod.url=https://prod-opensource-demo.orangehrmlive.com/index.php/auth/login
 staging.url=https://opensource-demo.orangehrmlive.com/web/index.php/auth/login
 ```
-2. seeting selenium grid url for remote run
+2. Setting selenium grid url for remote run
 ```
 seleniumgridurl=http://localhost:4444/wd/hub
 ```
