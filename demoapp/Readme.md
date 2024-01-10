@@ -3,7 +3,7 @@
 ## Framework Libraries and Tools
 
 * **Testng**: *Testing framework uses listener class and setting testsuites and parallel test run*
-* **RestAssured** : *Sending test log to ElasticSearch*
+* **RestAssured** : *Used Sending test log to ElasticSearch*
 * **Apache POI**: *Reading data from Google spreadsheet*
 * **Ownerns**: *Setting configuration properties for project*
 * **ExtentReport**: *Report generation*
@@ -72,6 +72,19 @@ overridereports=yes
 8. Sending log to ElasticSearch
 ```
 sendresulttoelk=no
+```
+Prerequisite:
+
+* Creating regression index to create the elasticsearch log as follows with Post request from POSTMAN:
+http://localhost:9200/regression/results
+```
+{
+    "testname": "loginLogoutTest",
+    "status": "fail",
+    "module": "login",
+    "author": "devb",
+    "executionTime": "2024-01-08T14:43:37.496145"
+}
 ```
 
 9. Setting elasticsearch database url
